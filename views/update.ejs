@@ -1,0 +1,32 @@
+<html lang="en">
+  <%- include("./component/head.ejs") %>
+
+  <body>
+    <%- include("./component/nav.ejs") %>
+    <div class="create-blog content">
+      <form action="/blogs/up/<%= blog._id %>" method="POST">
+        <label for="title">Blog title:</label>
+        <input
+          type="text"
+          id="title"
+          name="title"
+          required
+          value="<%= blog.title %>"
+        />
+        <label for="snippet">Blog snippet:</label>
+        <input
+          type="text"
+          id="snippet"
+          name="snippet"
+          required
+          value="<%= blog.snippet %>"
+        />
+        <label for="body">Blog body:</label>
+        <textarea id="body" name="body" required><%= blog.body %></textarea>
+        <button>update</button>
+      </form>
+    </div>
+
+    <%- include("./component/footer.ejs") %>
+  </body>
+</html>
